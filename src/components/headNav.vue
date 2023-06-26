@@ -35,7 +35,7 @@ import { useRouter } from 'vue-router'
 const navActive = ref('')
 const navData = reactive([
     {
-        path: '/',
+        path: 'index',
         nav: indexNav,
         active: indexNavActive,
         alt: '首页'

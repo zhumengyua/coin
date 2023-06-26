@@ -6,11 +6,10 @@
             <div class="carousel">
                 <div class="carousel_item previous_left" @click="clickBtn(inStage - 2, 'previous_tow')">
                     <div class="img_cover" v-show="dataList[inStage - 2] ?? false">
-
                         <h1>{{ dataList[inStage - 2]?.name }}</h1>
                         <h3>{{ dataList[inStage - 2]?.weight }}</h3>
                         <img :src="getinfoImg(dataList[inStage - 2]?.images)" />
-                        <div v-html="dataList[inStage - 2]?.info"></div>
+                        <div class="info" v-html="dataList[inStage - 2]?.info"></div>
                     </div>
                 </div>
                 <div class="carousel_item previous" @click="clickBtn(inStage - 1, 'previous')">
@@ -18,7 +17,7 @@
                         <h1>{{ dataList[inStage - 1]?.name }}</h1>
                         <h3>{{ dataList[inStage - 1]?.weight }}</h3>
                         <img :src="getinfoImg(dataList[inStage - 1]?.images)" />
-                        <div v-html="dataList[inStage - 1]?.info"></div>
+                        <div class="info" v-html="dataList[inStage - 1]?.info"></div>
                     </div>
                 </div>
                 <div class="carousel_item medium" @click="clickBtn(inStage, 'medium')">
@@ -26,7 +25,7 @@
                         <h1>{{ dataList[inStage]?.name }}</h1>
                         <h3>{{ dataList[inStage]?.weight }}</h3>
                         <img :src="getinfoImg(dataList[inStage]?.images)" />
-                        <div v-html="dataList[inStage]?.info"></div>
+                        <div class="info" v-html="dataList[inStage]?.info"></div>
                     </div>
                 </div>
                 <div class="carousel_item next" @click="clickBtn(inStage + 1, 'next')">
@@ -34,7 +33,7 @@
                         <h1>{{ dataList[inStage + 1]?.name }}</h1>
                         <h3>{{ dataList[inStage + 1]?.weight }}</h3>
                         <img :src="getinfoImg(dataList[inStage + 1]?.images)" />
-                        <div v-html="dataList[inStage + 1]?.info"></div>
+                        <div class="info" v-html="dataList[inStage + 1]?.info"></div>
                     </div>
                 </div>
                 <div class="carousel_item next_right" @click="clickBtn(inStage + 2, 'next_tow')">
@@ -43,7 +42,7 @@
                         <h1>{{ dataList[inStage + 2]?.name }}</h1>
                         <h3>{{ dataList[inStage + 2]?.weight }}</h3>
                         <img :src="getinfoImg(dataList[inStage + 2]?.images)" />
-                        <div v-html="dataList[inStage + 2]?.info"></div>
+                        <div class="info" v-html="dataList[inStage + 2]?.info"></div>
                     </div>
                 </div>
 
@@ -263,6 +262,8 @@ const getStyle = (obj, attr) => {
 </script>
     
 <style scoped lang="scss">
+@import url('@/assets/font.css');
+
 .main_bg {
     background-image: url('@/assets/nav/index-bg.png');
     background-size: 100% 100%;
@@ -324,18 +325,16 @@ const getStyle = (obj, attr) => {
     /* Safari */
     transition-duration: .25s, 1s;
     transition-timing-function: ease;
-    margin: 0 auto;
-
+    margin: 0.3em auto 0 auto;
 
     .carousel_thumbnail {
         z-index: 20;
         position: absolute;
-        bottom: 0.57em;
         width: 16em;
-
-
-
         background-image: url('@/assets/import/list-ground.png');
+        transform: translate(-50%, -50%);
+        left: 50%;
+        bottom: 0;
 
         .thumbnail_item_box {
             float: left;
@@ -343,8 +342,6 @@ const getStyle = (obj, attr) => {
             width: 96%;
             margin: 0 30px;
             height: 1.2em;
-
-
             overflow: hidden;
 
             .thumbnail_item {
@@ -368,7 +365,7 @@ const getStyle = (obj, attr) => {
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
+                background-color: rgba(0, 0, 0, 0.8);
                 opacity: 0;
                 transition: opacity .5s;
                 opacity: 1;
@@ -384,21 +381,24 @@ const getStyle = (obj, attr) => {
             position: absolute;
             z-index: 11;
             cursor: pointer;
+            margin: 0;
 
             >img {
-                width: 0.52em;
-                height: 0.52em;
+                display: block;
                 z-index: 11;
-
+                margin-top: 0.45em;
             }
         }
 
         .arrow_left {
             left: 0;
+            margin-left: -0.15em;
+
         }
 
         .arrow_right {
             right: 0;
+            margin-right: -0.15em;
         }
     }
 
@@ -415,24 +415,42 @@ const getStyle = (obj, attr) => {
             width: 10em;
             height: auto;
             position: absolute;
-            transform: translate(-50%, -50%);
-            top: 50%;
-            left: 50%;
-            background-color: #001529;
+
             color: white;
 
+            >* {
+                width: 80%;
+                // border: 1px solid red;
+                float: left;
+                text-align: left;
+            }
 
             >h1 {
                 font-size: 0.4em;
+                margin: 0;
+                margin-left: 6rem;
+                margin-top: 0.8em;
+                padding: 0;
+                font-family: syBlod;
+
             }
 
             >h3 {
+                width: 80%;
+                margin: 0;
+                padding: 0;
                 font-size: 0.3em;
                 font-weight: 500;
+                margin-left: 6rem;
+                margin-top: 0.2em;
+                font-family: syMedium;
+
+
             }
 
             ::v-deep>div>p {
                 margin: 0;
+                padding: 0;
             }
 
             >img {
@@ -441,8 +459,19 @@ const getStyle = (obj, attr) => {
                 opacity: 1;
                 //height: auto;
                 display: block;
+                float: right;
+                margin-right: 0.72em;
+                margin-top: 0.2em;
             }
 
+            .info {
+                max-width: 85.6em;
+                max-height: 8rem;
+                overflow: scroll;
+                float: left;
+                margin-left: 6rem;
+                margin-top: 10px;
+            }
 
         }
 
@@ -459,6 +488,9 @@ const getStyle = (obj, attr) => {
         .img_cover {
             width: 10em;
             height: 6.4em;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
 
             >img {
                 width: 6.5em;
@@ -469,7 +501,6 @@ const getStyle = (obj, attr) => {
             >div {
                 font-size: 0.2em;
             }
-
 
         }
     }
@@ -482,6 +513,17 @@ const getStyle = (obj, attr) => {
         .img_cover {
             width: calc(10em * 0.8);
             height: calc(6.4em *0.8);
+            transform: translate(-40%, -50%);
+            top: 40%;
+            left: 50%;
+
+            >h1 {
+                font-size: 0.35em;
+            }
+
+            >h3 {
+                font-size: 0.28em;
+            }
 
             >img {
                 width: calc(6.5em *0.7);
@@ -490,6 +532,10 @@ const getStyle = (obj, attr) => {
 
             >div {
                 font-size: 0.15em;
+            }
+
+            .info {
+                max-height: calc(8em *0.7);
             }
 
         }
@@ -508,6 +554,29 @@ const getStyle = (obj, attr) => {
         }
     }
 
+    .next {
+        .img_cover {
+            transform: translate(-40%, -50%);
+            top: 40%;
+            left: 10%;
+        }
+    }
+
+    .previous_left {
+        .img_cover {
+            transform: translate(-50%, -30%);
+            top: 30%;
+            left: 100%;
+        }
+    }
+
+    .next_right {
+        .img_cover {
+            transform: translate(-50%, -30%);
+            top: 30%;
+            left: 0%;
+        }
+    }
 
     .previous_left,
     .next_right {
@@ -516,17 +585,32 @@ const getStyle = (obj, attr) => {
         .img_cover {
             width: calc(10em * 0.64);
             height: calc(6.4em *0.64);
+            // transform: translate(-50%, -30%);
+            // top: 30%;
+            // left: 30%;
 
             >img {
                 width: calc(6.5em *0.5);
                 height: calc(3.2em *0.5);
             }
 
+            >h1 {
+                font-size: 0.31em;
+            }
+
+            >h3 {
+                font-size: 0.24em;
+            }
+
             >div {
                 font-size: 0.15em;
             }
 
+            .info {
+                max-height: calc(8em *0.5);
+            }
         }
+
         .img_cover:before {
             content: "";
             position: absolute;

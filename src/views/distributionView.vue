@@ -266,6 +266,8 @@ const closeDialog = () => {
 </script>
     
 <style lang="scss" scoped>
+@import url('@/assets/font.css');
+
 .main_bg {
     background-image: url('@/assets/nav/index-bg.png');
     background-size: 100% 100%;
@@ -404,7 +406,7 @@ const closeDialog = () => {
                     .imgs_text {
                         >span {
                             display: block;
-                            padding: 0 10px;
+                            padding: 10px;
                         }
 
                         width: 100%;
@@ -438,11 +440,15 @@ const closeDialog = () => {
                 >h1 {
                     margin-bottom: 0;
                     font-size: 0.6em;
+                    font-family: syHeavy;
+
                 }
 
                 >h3 {
                     margin: 0;
                     font-size: 0.3em;
+                    font-family: syMedium;
+
                 }
 
                 .main_text {

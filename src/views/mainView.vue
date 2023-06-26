@@ -31,6 +31,8 @@ import headNav from '@/components/headNav.vue';
 </script>
     
 <style scoped lang="scss">
+@import url('@/assets/font.css');
+
 .main_bg {
     background-image: url('@/assets/index/index-bg.png');
     background-size: 100% 100%;
@@ -64,6 +66,7 @@ import headNav from '@/components/headNav.vue';
                 font-size: 0.2em;
                 line-height: 2em;
                 text-indent: 2em;
+                font-family: syMedium;
 
                 >p {
                     padding: 0;

@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'syBlod'; 
+    src: url('./font/SourceHanSerifCN-Bold.OTF'); 
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'syHeavy'; 
+    src: url('./font/SourceHanSerifCN-Heavy.OTF'); 
+    font-weight: normal;
+    font-style: normal;
+  }  @font-face {
+    font-family: 'syMedium'; 
+    src: url('./font/SourceHanSerifCN-Medium.OTF'); 
+    font-weight: normal;
+    font-style: normal;
+  }
